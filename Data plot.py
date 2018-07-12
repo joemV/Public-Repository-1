@@ -28,3 +28,16 @@ plt.xlabel("Petal length")
 plt.ylabel("Sepal lenght")
 plt.legend(loc = "upper left")
 plt.show()
+
+class perceptron(object):
+  def __init__(self, eta = 0.01, n_iter = 10):
+    self.eta = eta
+    self.n_iter = n_iter
+    
+  def fit(X, y):
+    self.w_ = np.zeros(1 + X.shape[1])
+    self.errors_ = []
+    for _ in range(self.n_iter):
+      errors = 0
+      for xi, target in zip(X, y):
+        update = self.eta * (target - self.predict(xi))
